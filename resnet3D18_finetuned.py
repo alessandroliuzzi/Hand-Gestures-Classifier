@@ -20,7 +20,7 @@ FRAMES_PER_CLIP = 16
 BATCH_SIZE = 8
 EPOCHS = 10 
 
-DATASET_PORTION = 0.2  # 20% of Kaggle version of Jester dataset
+DATASET_PORTION = 0.4  # 40% of Kaggle version of Jester dataset
 
 # === Dataset ===
 class VideoDataset(Dataset):
@@ -32,9 +32,10 @@ class VideoDataset(Dataset):
             video_id = str(row['video_id'])
             label = row['label_id']
             video_dir = os.path.join(self.root_dir, video_id)
-            frame_files = sorted(os.listdir(video_dir))
-            for i in range(0, len(frame_files) - FRAMES_PER_CLIP + 1, FRAMES_PER_CLIP):
-                clip_paths = [os.path.join(video_dir, f) for f in frame_files[i:i+FRAMES_PER_CLIP]]
+            frame_files = sorted(os.listdir(video_dir), key=lambda x: int(x.split('.')[0]))
+            # Sampling every other frame
+            if len(frame_files) >= 2 * FRAMES_PER_CLIP:
+                clip_paths = [os.path.join(video_dir, frame_files[i]) for i in range(0, 2 * FRAMES_PER_CLIP, 2)]
                 self.samples.append((clip_paths, label))
 
     def __len__(self):
