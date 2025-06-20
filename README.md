@@ -21,7 +21,7 @@ __Instructions__
   
 - Download the Jester dataset at https://www.kaggle.com/datasets/toxicmender/20bn-jester/data by selecting __Download__ on the upper right corner, and then __Download dataset as zip__
   
-- Extract the dataset and localize the directory of the __Train__ folder and of the __Train.csv__ file and insert them in the code, replacing the existing ones (first rows of the code). In order to use the demo, you also need a __best_model.pth__ file obtained from the training; if so, locate it and copy the directory in the code (right under the CSV and Train folder rows). A downloadable instance of the model can be found at https://www.kaggle.com/code/alexscience12993/cv-latest-full/output (only the best_model.pth file present is needed for the demo)
+- Extract the dataset and localize the directory of the __Train__ folder and of the __Train.csv__ file and insert them in the code, replacing the existing ones (first rows of the code). In order to use the demo, you also need a __best_model.pth__ file obtained from the training; if so, locate it and copy the directory in the code (right under the CSV and Train folder rows). A downloadable instance of the model can be found at (https://www.kaggle.com/datasets/alexscience12993/jester-trained-model-1-epoch/data) 
 - Run the script
 
 NOTE: be sure to also have __CUDA__ installed if you want to run the code on a Nvidia GPU (if present) to minimize execution time. In case it is needed, install it with __pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118__
